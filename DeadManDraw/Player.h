@@ -17,7 +17,7 @@ protected:
 
 public:
 	Player();
-	virtual ~Player();
+	~Player();
 
 	//select player with a random name
 	void intialise();
