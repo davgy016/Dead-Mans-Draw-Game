@@ -3,27 +3,38 @@
 #include "Card.h"
 #include <string>
 #include <vector>
+#include <map>
 
-typedef std::vector<Card*> CardCollection;
+using VectorContainer = std::vector<Card>;
+using mapContainer = std::map<CardType, std::vector<Card>>;
+
+template<typename ContainerType>
 
 class CardContainer
 {
 protected:
-	CardCollection cards;
+	ContainerType cards;
 
 public:
 	CardContainer();
-	virtual ~CardContainer();
+	virtual ~CardContainer()=0;
 
-	virtual void addCard(Card* card);
-	virtual Card* removeCard(int index);	
-	virtual void drawCard()=0;
-	virtual const CardCollection& getCards() const;
-	virtual int size() const;
-	virtual bool isEmpry() const;
-	virtual Card* getTopCardOfType(CardType type);
-	virtual void clear();
+	virtual void addCard(Card* card)=0;
+	virtual Card* removeCard(int index) = 0;
+	virtual void drawCard()=0;	
+	virtual int size() const = 0;
+	virtual bool isEmpty() const = 0;
+	virtual Card* getTopCardOfType(CardType type) = 0;
+	virtual void clear() = 0;
 
 };
+
+template<typename ContainerType>
+inline CardContainer<ContainerType>::CardContainer()
+{
+}
+
+template <typename ContainerType>
+CardContainer<ContainerType>::~CardContainer(){}
 
 #endif // CARDCONTAINER_H

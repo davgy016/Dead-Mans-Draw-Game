@@ -8,11 +8,11 @@ DiscardPile::~DiscardPile()
 {
 }
 
-CardCollection DiscardPile::drawCards(int count)
+VectorContainer DiscardPile::drawCards(int count)
 {
-	return CardCollection();
+	return VectorContainer();
 }
 
-void DiscardPile::addCards(const CardCollection& cards)
+void DiscardPile::addCards(const VectorContainer& cards)
 {
 }

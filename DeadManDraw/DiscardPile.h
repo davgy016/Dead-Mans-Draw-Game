@@ -5,17 +5,17 @@
 #include "CardContainer.h"
 
 
-class DiscardPile : public CardContainer
+class DiscardPile : public CardContainer< VectorContainer>
 {
 public:
 	DiscardPile();
 	~DiscardPile();
 
 	//remove multiple cards. e.g. check MapCardm, Chest-Key ability
-	CardCollection drawCards(int count);
+	VectorContainer drawCards(int count);
 
 	// add multiple cards. e.g when it is bust
-	void addCards(const CardCollection& cards);
+	void addCards(const VectorContainer& cards);
 
 };
 

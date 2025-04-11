@@ -3,7 +3,9 @@
 #include "CardContainer.h"
 #include "Player.h"
 
-class Bank : public CardContainer
+
+
+class Bank : public CardContainer<mapContainer>
 {
 protected:
     Player* _player;
@@ -13,7 +15,7 @@ public:
     Bank(Player* player);
     ~Bank();
     Player* getPlayer() const;
-    void addCardsFromPlayeArea(CardCollection& playAreaCards);
+    void addCardsFromPlayeArea(mapContainer& playAreaCards);
     int calculateScore();
 };
 

@@ -13,9 +13,11 @@ Player* Bank::getPlayer() const
 	return nullptr;
 }
 
-void Bank::addCardsFromPlayeArea(CardCollection& playAreaCards)
+void Bank::addCardsFromPlayeArea(mapContainer& playAreaCards)
 {
 }
+
+
 
 int Bank::calculateScore()
 {

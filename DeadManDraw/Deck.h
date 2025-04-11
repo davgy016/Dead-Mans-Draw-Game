@@ -5,7 +5,7 @@
 #include "CardContainer.h"
 
 
-class Deck : public CardContainer
+class Deck : public CardContainer< VectorContainer>
 {
 public:
 	Deck();

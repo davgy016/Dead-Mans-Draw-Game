@@ -13,6 +13,6 @@ bool PlayArea::isBust()
 	return false;
 }
 
-void PlayArea::moveAllCardsTo(CardCollection& container)
+void PlayArea::moveAllCardsTo(VectorContainer& container)
 {
 }

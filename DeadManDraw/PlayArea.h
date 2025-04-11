@@ -2,7 +2,7 @@
 #define PLAYAREA_H
 
 #include "CardContainer.h"
-class PlayArea : public CardContainer
+class PlayArea : public CardContainer< VectorContainer>
 {
 public:
 	PlayArea();
@@ -10,7 +10,7 @@ public:
 
 	bool isBust();
 
-	void moveAllCardsTo(CardCollection& container);
+	void moveAllCardsTo(VectorContainer& container);
 };
 
 
