@@ -5,8 +5,8 @@
 #include <vector>
 #include <map>
 
-using VectorContainer = std::vector<Card>;
-using mapContainer = std::map<CardType, std::vector<Card>>;
+using VectorContainer = std::vector<Card*>;
+using mapContainer = std::map<CardType, std::vector<Card*>>;
 
 template<typename ContainerType>
 
@@ -27,7 +27,6 @@ public:
 	virtual Card* getTopCardOfType(CardType type) = 0;
 	virtual void clear() = 0;
 
-};
 
 template<typename ContainerType>
 inline CardContainer<ContainerType>::CardContainer()
@@ -36,5 +35,7 @@ inline CardContainer<ContainerType>::CardContainer()
 
 template <typename ContainerType>
 CardContainer<ContainerType>::~CardContainer(){}
+
+};
 
 #endif // CARDCONTAINER_H
