@@ -13,7 +13,7 @@ public:
 
 	void addCard(Card* card) override;
 
-	bool CardContainer::isEmpty() const override;
+	//bool isEmpty() const override;
 
 	//remove multiple cards. e.g. check MapCardm, Chest-Key ability
 	VectorContainer drawCards(int count);

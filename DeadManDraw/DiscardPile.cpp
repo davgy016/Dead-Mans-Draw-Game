@@ -10,24 +10,30 @@ DiscardPile::DiscardPile():
 
 DiscardPile::~DiscardPile()
 {
+	for (Card* card : cards) {
+		delete card;
+	}
+	cards.clear();
 	cout << "Discard Pile destroyed" << endl;
 }
 
 //use this method for Cannon
 void DiscardPile::addCard(Card* card)
 {
-	cards.push_back(card);
+	if (card != nullptr) {
+		cards.push_back(card);
+	}
 }
-bool DiscardPile ::isEmpty() const {
-	return cards.empty();
-}
+//bool DiscardPile ::isEmpty() const {
+//	return cards.empty();
+//}
 
 //remove multiple cards. e.g. check MapCardm, Chest-Key ability
 VectorContainer DiscardPile::drawCards(int count)
 {
 	VectorContainer drawnCards;
 	
-	for (int i = 0; i < count && !isEmpty(); ++i) {
+	for (int i = 0; i < count && !cards.empty(); ++i) {
 		Card* card = cards.back();
 		cards.pop_back();
 		drawnCards.push_back(card);
