@@ -1,8 +1,9 @@
 #include "Card.h"
 
 
-Card::Card(int value):
-	_pointValue(value)
+Card::Card(int value, CardType type):
+	_pointValue(value),
+	_type(type)
 {
 }
 
@@ -17,8 +18,14 @@ int Card::getValue() const
 
 const CardType& Card::getType() const
 {
-	
+	return _type;
 }
+
+
+
+
+
+
 
 
 

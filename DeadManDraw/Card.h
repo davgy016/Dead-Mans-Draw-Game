@@ -11,7 +11,7 @@ class Card
 {
 public:
 	
-	Card(int value);
+	Card(int value, CardType type);
 	virtual ~Card();
 	
 	int getValue() const;
@@ -22,6 +22,7 @@ public:
 
 protected:
 	int _pointValue;
+	CardType _type;
 	
 };
 
