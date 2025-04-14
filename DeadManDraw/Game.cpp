@@ -119,7 +119,41 @@ int Game::getCurrentTurn() const
 
 void Game::handlePlayerTurn()
 {
+	Player* currentPlayer = getCurrentPlayer();
+	bool continueTurn = true;
+	bool busted = false;
 	
+	std::cout << currentPlayer->getName() << "'s turn" << std::endl;
+
+	while (continueTurn && _deck->size() > 0) {
+		Card* drawnCard = _deck->removeCard();
+		if (drawnCard == nullptr) {
+			std::cout << "Deck is empty!" << std::endl;
+			break;
+		}
+
+		std::cout << "Drew: " << drawnCard->str() << std::endl;
+
+		busted = currentPlayer->playCard(drawnCard, *this);
+
+		if (busted==false) {
+			handleBust(currentPlayer);
+			break;
+		}
+		currentPlayer->printPlayerArea();
+		std::cout << "Draw again? (y/n): ";
+		std::string response;
+		std::cin >> response;
+
+		continueTurn = (response == "y" || response == "Y");
+
+		if (!continueTurn) {
+			std::cout << currentPlayer->getName() << " adds cards into Bank." << std::endl;
+			currentPlayer->bankCards(*this);
+			currentPlayer->printBank();
+			std::cout << "Current Score: " << currentPlayer->getScore();
+		}
+	}
 }
 
 void Game::nextPlayer()
