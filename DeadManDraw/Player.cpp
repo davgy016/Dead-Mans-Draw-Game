@@ -65,7 +65,19 @@ bool Player::playCard(Card* card, Game& game)
 
 void Player::bankCards(Game&game)
 {
-	
+	VectorContainer cards = _playArea->getCards();
+
+	for (Card* card : cards) {
+		card->willAddToBank(game, *this);
+	}
+
+	for (Card* card : cards) {
+		_bank->addCard(card);
+	}
+
+	_playArea->getCards().clear();
+
+	_busted = false;
 }
 
 void Player::printPlayerArea() const
@@ -75,8 +87,7 @@ void Player::printPlayerArea() const
 
 void Player::printBank() const
 {
-	std::cout << "Bank:" << std::endl;
-	_bank->print();
+	
 }
 
 int Player::getScore() const
