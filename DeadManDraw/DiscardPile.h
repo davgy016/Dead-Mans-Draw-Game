@@ -21,6 +21,7 @@ public:
 	// add multiple cards. e.g when it is bust
 	void addCards(const VectorContainer& newCards);
 
+	VectorContainer& getCards() override;
 };
 
 

@@ -47,3 +47,8 @@ void DiscardPile::addCards(const VectorContainer& newCards){
 		cards.push_back(card);
 	}
 }
+
+VectorContainer& DiscardPile::getCards()
+{
+	return cards;
+}
