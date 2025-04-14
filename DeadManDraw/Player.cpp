@@ -91,7 +91,7 @@ void Player::printPlayerArea() const
 		return;
 	}
 	for (Card* card : cards) {
-		std::cout << card->str() << std::endl;
+		std::cout <<"  " << card->str() << std::endl;
 	}
 }
 

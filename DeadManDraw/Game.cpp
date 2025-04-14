@@ -80,8 +80,9 @@ void Game::endGame()
 		std::cout << _players[1]->getName() << " wins!" << std::endl;
 	}
 	else {
-		std::cout << "\nIt's a tie!\n" << std::endl;
+		std::cout << "It's a tie!" << std::endl;
 	}
+	std::cout << std::endl;
 
 }
 

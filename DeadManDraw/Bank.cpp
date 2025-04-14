@@ -102,7 +102,7 @@ void Bank::displayBankDetails() const {
     }
     
     for (const auto& pair : cards) {
-        std::cout << "\n ";        
+        std::cout << "\n  ";        
         /*VectorContainer sortedCards = pair.second;
         std::sort(sortedCards.begin(), sortedCards.end(), [](Card* a, Card* b) {
             return a->getValue() > b->getValue();
@@ -110,9 +110,9 @@ void Bank::displayBankDetails() const {
 
         for (Card* card : pair.second) {
             std::cout << card->str() << " ";
-        }
-        std::cout << std::endl;
+        }        
     }
+    std::cout << std::endl;
 }
 
 
