@@ -29,4 +29,22 @@ void Deck::shuffleDeck()
 
 }
 
+Card* Deck::peekCard() const
+{
+	if (cards.empty()) {
+		std::cout<<"Deck is empty"<<std::endl;
+		return nullptr;
+	}
+	return cards.back();
+}
 
+Card* Deck::removeCard() 
+{
+	if (cards.empty()) {
+		std::cout << "Deck is empty" << std::endl;
+		return nullptr;
+	}
+	Card* topCard = cards.back();
+	cards.pop_back();
+	return topCard;
+}
