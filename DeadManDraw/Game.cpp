@@ -123,15 +123,20 @@ void Game::handlePlayerTurn()
 }
 
 void Game::nextPlayer()
-{	
+{
+	getOtherPlayer();
 }
 
 void Game::handleBust(Player* player)
 {
-	
+	std::cout << player->getName() << " busted!" << std::endl;
+
+	VectorContainer cardsToDiscard;
+	player->getPlayeAre()->moveAllCardsTo(cardsToDiscard);
 }
 
 void Game::printGameState()
 {
-	
+	std::cout << "\n=== Round " << _currentRound << ", Turn " << _currentTurn << " ===" << std::endl;
+	std::cout << "Deck: " << _deck->size() << " cards remaining" << std::endl;
 }
