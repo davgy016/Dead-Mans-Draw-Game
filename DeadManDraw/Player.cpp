@@ -97,8 +97,8 @@ void Player::printPlayerArea() const
 
 void Player::printBank() const
 {
-	std::cout << "Bank:" << std::endl;
-	_bank->print();
+	std::cout << "Bank:";
+	_bank->displayBankDetails();
 }
 
 int Player::getScore() const

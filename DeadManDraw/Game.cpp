@@ -15,11 +15,11 @@ Game::Game() :
 Game::~Game()
 {
 	delete _deck;
-	delete _discardPile;	
+	delete _discardPile;
 	for (Player* player : _players) {
 		delete player;
 	}
-	
+
 }
 
 //ensure only one game instance exists at all time
@@ -36,18 +36,18 @@ void Game::initialiseGame()
 
 	_deck->initialise();
 	_deck->shuffleDeck();
-	
+
 
 	_players.push_back(new Player());
 	_players.push_back(new Player());
 
-	
+
 }
 
 void Game::startGame()
 {
 	std::cout << "Start the game" << std::endl;
-	std::cout << "Players: " << _players.at(0)->getName() <<" vs " << _players.at(1)->getName() << std::endl;
+	std::cout << "Players: " << _players.at(0)->getName() << " vs " << _players.at(1)->getName() << std::endl;
 
 	while (_currentTurn <= _maxTurns && _deck->size() > 0) {
 		printGameState();
@@ -69,7 +69,7 @@ void Game::endGame()
 
 	for (Player* player : _players) {
 		std::cout << player->getName() << ": " << player->getScore() << " points" << std::endl;
-		player->printBank();
+		//player->printBank();
 	}
 
 	// Determine winner
@@ -80,7 +80,7 @@ void Game::endGame()
 		std::cout << _players[1]->getName() << " wins!" << std::endl;
 	}
 	else {
-		std::cout << "It's a tie!" << std::endl;
+		std::cout << "\nIt's a tie!\n" << std::endl;
 	}
 
 }
@@ -102,7 +102,7 @@ Player* Game::getCurrentPlayer() const
 
 Player* Game::getOtherPlayer() const
 {
-	return _players[(_currentPlayerIndex+1)%2];
+	return _players[(_currentPlayerIndex + 1) % 2];
 }
 
 int Game::getCurrentRound() const
@@ -120,7 +120,7 @@ void Game::handlePlayerTurn()
 	Player* currentPlayer = getCurrentPlayer();
 	bool continueTurn = true;
 	bool busted = false;
-	
+
 	std::cout << currentPlayer->getName() << "'s turn" << std::endl;
 
 	while (continueTurn && _deck->size() > 0) {
@@ -132,13 +132,13 @@ void Game::handlePlayerTurn()
 
 		std::cout << "Drew: " << drawnCard->str() << std::endl;
 
-		busted = currentPlayer->playCard(drawnCard, *this);		
+		busted = currentPlayer->playCard(drawnCard, *this);
 
-		if (busted) {			
+		if (busted) {
 			_discardPile->addCard(drawnCard);
 			break;
 		}
-		
+
 		currentPlayer->printPlayerArea();
 		std::cout << "Draw again? (y/n): ";
 		std::string response;
@@ -149,11 +149,11 @@ void Game::handlePlayerTurn()
 		if (!continueTurn) {
 			std::cout << currentPlayer->getName() << " adds cards into Bank." << std::endl;
 			currentPlayer->bankCards(*this);
-			currentPlayer->printBank();
-			std::cout << "Current Score: " << currentPlayer->getScore()<<std::endl;
-			std::cout << std::endl;
 		}
 	}
+		currentPlayer->printBank();
+		std::cout << "Current Score: " << currentPlayer->getScore() << std::endl;
+		std::cout << std::endl;
 }
 
 void Game::nextPlayer()
@@ -166,7 +166,7 @@ void Game::nextPlayer()
 void Game::printGameState()
 {
 	std::cout << "\n=== Round " << _currentRound << ", Turn " << _currentTurn << " ===" << std::endl;
-	std::cout << "Deck: " << _deck->size() << " cards remaining" << std::endl;
-	std::cout << "DiscardPile: " << _discardPile->size() << " cards" << std::endl;
+	/*std::cout << "Deck: " << _deck->size() << " cards remaining" << std::endl;
+	std::cout << "DiscardPile: " << _discardPile->size() << " cards" << std::endl;*/
 
 }
