@@ -95,14 +95,14 @@ Card* Bank::getTopCardOfType(CardType type)
 	return nullptr;
 }
 
-void Bank::print() const {
+void Bank::displayBankDetails() const {
     if (cards.empty()) {
-        std::cout << "  Empty\n" << std::endl;
+        std::cout << " 0" << std::endl;
         return;
     }
     
     for (const auto& pair : cards) {
-        std::cout << "  ";        
+        std::cout << "\n ";        
         /*VectorContainer sortedCards = pair.second;
         std::sort(sortedCards.begin(), sortedCards.end(), [](Card* a, Card* b) {
             return a->getValue() > b->getValue();

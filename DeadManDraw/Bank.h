@@ -21,7 +21,7 @@ public:
     int calculateScore();
     MapContainer& getCards() override;
     Card* getTopCardOfType(CardType type);
-    void print() const;
+    void displayBankDetails() const;
     void sortCardsByValue(CardType type);
 
 };
