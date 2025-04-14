@@ -32,7 +32,7 @@ const std::string& Player::getName() const
 	return  _name;
 }
 
-PlayArea* Player::getPlayeAre() const
+PlayArea* Player::getPlayArea() const
 {
 	return _playArea;
 }

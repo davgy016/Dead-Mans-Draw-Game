@@ -28,7 +28,7 @@ public:
 
 	const std::string& getName() const;
 
-	PlayArea* getPlayeAre()const;
+	PlayArea* getPlayArea()const;
 
 	Bank* getBank() const;
 

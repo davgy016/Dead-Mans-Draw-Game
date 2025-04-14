@@ -41,9 +41,7 @@ void Game::initialiseGame()
 	_players.push_back(new Player());
 	_players.push_back(new Player());
 
-	_currentPlayerIndex = 0;
-	_currentRound = 0;
-	_currentTurn = 0;
+	
 }
 
 void Game::startGame()
@@ -151,14 +149,14 @@ void Game::handlePlayerTurn()
 			std::cout << currentPlayer->getName() << " adds cards into Bank." << std::endl;
 			currentPlayer->bankCards(*this);
 			currentPlayer->printBank();
-			std::cout << "Current Score: " << currentPlayer->getScore();
+			std::cout << "Current Score: " << currentPlayer->getScore()<<std::endl;
 		}
 	}
 }
 
 void Game::nextPlayer()
 {
-	getOtherPlayer();
+	_currentPlayerIndex = (_currentPlayerIndex + 1) % _players.size();
 }
 
 void Game::handleBust(Player* player)
@@ -166,7 +164,7 @@ void Game::handleBust(Player* player)
 	std::cout << player->getName() << " busted!" << std::endl;
 
 	VectorContainer cardsToDiscard;
-	player->getPlayeAre()->moveAllCardsTo(cardsToDiscard);
+	player->getPlayArea()->moveAllCardsTo(cardsToDiscard);
 }
 
 void Game::printGameState()

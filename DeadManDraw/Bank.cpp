@@ -97,7 +97,7 @@ Card* Bank::getTopCardOfType(CardType type)
 
 void Bank::print() const {
     if (cards.empty()) {
-        std::cout << "  Empty" << std::endl;
+        std::cout << "  Empty\n" << std::endl;
         return;
     }
     
