@@ -132,10 +132,10 @@ void Game::handlePlayerTurn()
 
 		std::cout << "Drew: " << drawnCard->str() << std::endl;
 
-		busted = currentPlayer->playCard(drawnCard, *this);
+		busted = currentPlayer->playCard(drawnCard, *this);		
 
-		if (busted==false) {
-			handleBust(currentPlayer);
+		if (busted) {			
+			
 			break;
 		}
 		currentPlayer->printPlayerArea();
@@ -150,6 +150,7 @@ void Game::handlePlayerTurn()
 			currentPlayer->bankCards(*this);
 			currentPlayer->printBank();
 			std::cout << "Current Score: " << currentPlayer->getScore()<<std::endl;
+			std::cout << std::endl;
 		}
 	}
 }
@@ -159,16 +160,12 @@ void Game::nextPlayer()
 	_currentPlayerIndex = (_currentPlayerIndex + 1) % _players.size();
 }
 
-void Game::handleBust(Player* player)
-{
-	std::cout << player->getName() << " busted!" << std::endl;
 
-	VectorContainer cardsToDiscard;
-	player->getPlayArea()->moveAllCardsTo(cardsToDiscard);
-}
 
 void Game::printGameState()
 {
 	std::cout << "\n=== Round " << _currentRound << ", Turn " << _currentTurn << " ===" << std::endl;
 	std::cout << "Deck: " << _deck->size() << " cards remaining" << std::endl;
+	std::cout << "DiscardPile: " << _discardPile->size() << " cards" << std::endl;
+
 }

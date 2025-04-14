@@ -53,7 +53,7 @@ bool Player::playCard(Card* card, Game& game)
 	_playArea->addCard(card);
 	if (_playArea->isBust(card)) {	
 		_busted = true;
-		std::cout << "Bust! Drew " << card->str() << " but play area already had  this suit" << std::endl;
+		std::cout << "Bust! Drew " << card->str() << ", play area already had  this suit" << std::endl;
 		game.getDiscardPile();
 		_playArea->moveAllCardsTo(game.getDiscardPile()->getCards());
 		return true;
