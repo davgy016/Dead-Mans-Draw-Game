@@ -3,7 +3,7 @@
 
 using namespace std;
 
-DiscardPile::DiscardPile():
+DiscardPile::DiscardPile() :
 	CardContainer<VectorContainer>()
 {
 }
@@ -32,17 +32,19 @@ void DiscardPile::addCard(Card* card)
 VectorContainer DiscardPile::drawCards(int count)
 {
 	VectorContainer drawnCards;
-	
-	for (int i = 0; i < count && !cards.empty(); ++i) {
-		Card* card = cards.back();
-		cards.pop_back();
-		drawnCards.push_back(card);
+	if (!cards.empty()) {
+
+		for (int i = 0; i < count; ++i) {
+			Card* card = cards.back();
+			cards.pop_back();
+			drawnCards.push_back(card);
+		}
 	}
 	return drawnCards;
 }
 
 // add multiple cards. e.g when it is bust
-void DiscardPile::addCards(const VectorContainer& newCards){
+void DiscardPile::addCards(const VectorContainer& newCards) {
 	for (Card* card : newCards) {
 		cards.push_back(card);
 	}
