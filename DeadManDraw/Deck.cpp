@@ -7,6 +7,7 @@
 #include "OracleCard.h"
 #include "MapCard.h"
 #include "MermaidCard.h"
+#include "KrakenCard.h"
 #include <iostream>
 #include <algorithm>
 #include <random>
@@ -32,6 +33,7 @@ void Deck::initialise()
 		cards.push_back(new OracleCard(i));
 		cards.push_back(new MapCard(i));
 		cards.push_back(new MermaidCard(i));
+		cards.push_back(new KrakenCard(i));
 
 	}
 }

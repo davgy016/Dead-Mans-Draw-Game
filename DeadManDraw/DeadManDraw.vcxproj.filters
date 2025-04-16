@@ -69,6 +69,9 @@
     <ClCompile Include="MermaidCard.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="KrakenCard.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -120,6 +123,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="MermaidCard.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="KrakenCard.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
