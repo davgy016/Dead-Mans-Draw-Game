@@ -44,7 +44,7 @@ void SwordCard::play(Game& game, Player& player)
 		std::cout << "Fail to steal card" << std::endl;
 		return;
 	}
-	
+	std::cout << "Played " << cardToSteal->str() << " from "<<otherPlayer->getName()<<" Bank into your Play Area" << std::endl;
 	//check if adding card cause bust
 	if (player.getPlayArea()->isBust(cardToSteal)) {
 		std::cout << "Bust! You lost all cards" << std::endl;
@@ -57,7 +57,5 @@ void SwordCard::play(Game& game, Player& player)
 	else {
 		player.getPlayArea()->addCard(cardToSteal);
 	}
-
-
 	
 }

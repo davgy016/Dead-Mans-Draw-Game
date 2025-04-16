@@ -56,7 +56,7 @@ bool Player::playCard(Card* card, Game& game)
 	//card= game.getDeck()->removeCard();
 	if (_playArea->isBust(card)) {
 		_busted = true;
-		std::cout << "Bust! Drew " << card->str() << ", play area already had  this suit" << std::endl;
+		std::cout << "Bust! You lost all cards" << std::endl;
 		_playArea->moveAllCardsTo(game.getDiscardPile()->getCards());
 		game.getDiscardPile()->addCard(card);
 		return true;
@@ -99,29 +99,33 @@ CardType Player::selectCardTypeFromBank(Game& game, Player* targetPlayer)
 
 	//if each suit has cards, then gets card type with highest value and stores in new vector of availableSuits. Then display available suits for user to choose
 	//Note: in bank cards is always sorted by highest to lowest
-	if (!bankCards.empty()) {
+	
+	/*if (!bankCards.empty()) {
 		std::cout << "Available suits to discard from " << targetPlayer->getName() << "'s Bank:" << std::endl;
-	}
+	}*/
 	for (auto& pair : bankCards) {
 		if (!pair.second.empty()) {
 			CardType ct = pair.first;
 			availableSuits.push_back(ct);
-			std::cout << index << "  " << pair.second.front()->str() << std::endl;
+			std::cout <<"   " << index << "  " << pair.second.front()->str() << std::endl;
 			index++;
 		}
 	}
 	// Check if there are any available suits to discard
-	if (availableSuits.empty()) {
+	/*if (availableSuits.empty()) {
 		std::cout << "No cards available to discard from " << targetPlayer->getName() << "'s Bank" << std::endl;
 		return Invalid;
-	}
+	}*/
 
 	//user select suit to discard
 	int choice = 0;
 	bool validInput = false;
 	while (!validInput) {
+		if (availableSuits.size() > 0) {
+
 		std::cout << "Choose a suit to discard 1-" << availableSuits.size() << std::endl;
 		std::cin >> choice;
+		}
 
 		if (std::cin.fail()) {
 			std::cin.clear();
@@ -132,8 +136,7 @@ CardType Player::selectCardTypeFromBank(Game& game, Player* targetPlayer)
 			std::cout << "Invalid choice. Enter number between 1 and " << availableSuits.size() << std::endl;
 		}
 		else {
-			validInput = true;
-			std::cout << "You shoot card out from other player's bank" << std::endl;
+			validInput = true;			
 		}
 	}
 

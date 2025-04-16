@@ -44,24 +44,25 @@ void ChestCard::willAddToBank(Game& game, Player& player)
 
 	if (hasKeyCard) {
 		
-		std::cout << "Chest key combination activated" << std::endl;
+		/*std::cout << "Chest key combination activated" << std::endl;*/
 
 			//use this number for DiscardPile
 			int numCardsOfPlayArea = playAreaCards.size();
 			//draw same number of cards as are in playerArea and store in vector container
 			VectorContainer drawnCards = game.getDiscardPile()->drawCards(numCardsOfPlayArea);
 			if (drawnCards.empty()) {
-				std::cout << "No cards in Discard Pile to draw" << std::endl;
+				std::cout << "No cards in Discard Pile to to get bonus cards" << std::endl;
 			}
 			else {
-				std::cout << "Drew " << drawnCards.size() << " cards from Discard Pile:" << std::endl;
+				std::cout << "Chest-key activated. Bonus cards: ";
 				for (Card* card : drawnCards) {
-					std::cout << "  " << card->str() << std::endl;
+					std::cout << "  " << card->str();
 
 					//add cards to the bank
 					player.getBank()->addCard(card);				
 					
 				}
+				std::cout << std::endl;
 			}		
 
 		}
