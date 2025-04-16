@@ -6,6 +6,7 @@
 class HookCard : public Card
 
 {
+public:
 	HookCard(int value);
 	~HookCard();
 
