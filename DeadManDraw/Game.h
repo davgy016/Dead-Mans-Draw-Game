@@ -36,8 +36,7 @@ public:
 	int getCurrentRound() const;
 	int getCurrentTurn() const;
 	void handlePlayerTurn();
-	void nextPlayer();
-	void handleBust(Player* player);
+	void nextPlayer();	
 	void printGameState();
 
 

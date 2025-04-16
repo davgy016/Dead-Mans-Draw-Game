@@ -141,9 +141,24 @@ void Game::handlePlayerTurn()
 		}
 
 		currentPlayer->printPlayerArea();
-		std::cout << "Draw again? (y/n): ";
+		
 		std::string response;
-		std::cin >> response;
+		bool validResponse = false;
+		
+		while (!validResponse) {
+			std::cout << "Draw again? (y/n): ";
+			std::cin >> response;
+			
+			// Clear any extra input
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+			
+			// Check if response is valid
+			if (response == "y" || response == "Y" || response == "n" || response == "N") {
+				validResponse = true;
+			} else {
+				std::cout << "Invalid input. Please enter 'y' or 'n'" << std::endl;
+			}
+		}
 
 		continueTurn = (response == "y" || response == "Y");
 
