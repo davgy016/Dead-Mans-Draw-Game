@@ -4,6 +4,7 @@
 #include "ChestCard.h"
 #include "SwordCard.h"
 #include "HookCard.h"
+#include "OracleCard.h"
 #include <iostream>
 #include <algorithm>
 #include <random>
@@ -26,6 +27,7 @@ void Deck::initialise()
 		cards.push_back(new KeyCard(i));
 		cards.push_back(new SwordCard(i));
 		cards.push_back(new HookCard(i));
+		cards.push_back(new OracleCard(i));
 
 	}
 }

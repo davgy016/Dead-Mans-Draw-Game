@@ -20,7 +20,7 @@ std::string KeyCard::str() const
 
 void KeyCard::play(Game& game, Player& player)
 {
-	std::cout << "Key ability: No immediate effect. If banked with a Key card, draw bonus cards from the Discard pile." << std::endl;
+	std::cout << "Key ability: No immediate effect. If banked with a Chest card, draw bonus cards from the Discard pile." << std::endl;
 
 	// Check if there's a Chest card in the play area
 	bool hasChestCard = false;
