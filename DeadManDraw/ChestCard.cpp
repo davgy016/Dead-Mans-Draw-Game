@@ -54,7 +54,7 @@ void ChestCard::willAddToBank(Game& game, Player& player)
 				std::cout << "No cards in Discard Pile to draw" << std::endl;
 			}
 			else {
-				std::cout << "Drew " << drawnCards.size() << "cards from Discard Pile:" << std::endl;
+				std::cout << "Drew " << drawnCards.size() << " cards from Discard Pile:" << std::endl;
 				for (Card* card : drawnCards) {
 					std::cout << "  " << card->str() << std::endl;
 
