@@ -32,7 +32,7 @@ void OracleCard::play(Game& game, Player& player)
 	Card* peekCard = deck->peekCard();
 
 	if (peekCard) {
-		std::cout << "Top card of Deck is " << peekCard->str() << std::endl;
+		std::cout << "Oracle sees card: " << peekCard->str() << std::endl;
 	}
 	else {	
 		std::cout << "Could not peek top card" << std::endl;

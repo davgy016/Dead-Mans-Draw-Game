@@ -32,6 +32,9 @@ void KeyCard::play(Game& game, Player& player)
 			break;
 		}
 	}
+	if (hasChestCard) {
+		std::cout << "You have a Chest card. If you bank now, you'll activate the Chest-Key combination." << std::endl;
+	}
 	
 }
 
