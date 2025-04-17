@@ -40,12 +40,19 @@ Card* CardFactory::createCard(CardType type, int value)
     }
 }
 
-std::vector<Card*> CardFactory::createCardsOfType(CardType type)
+cardCollection CardFactory::createCardsOfType(CardType type)
 {
-    return std::vector<Card*>();
+    cardCollection cards;
+    int maxValue = getMaxValue(type);
+    int minValue = getMinValue(type);
+    for (int value = minValue; value <= maxValue; ++value) {
+        Card* card = createCard(type, value);
+        cards.push_back(card);
+    }
+    return cards;
 }
 
-std::vector<Card*> CardFactory::createAllCards()
+cardCollection CardFactory::createAllCards()
 {
     return std::vector<Card*>();
 }
