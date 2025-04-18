@@ -58,9 +58,9 @@ Card* Bank::removeCard(CardType type)
         Card* card = typeCards.front();
         //delete/remove particular suit card of highest value
         typeCards.erase(typeCards.begin());
-        /*if (typeCards.empty()) {
+        if (typeCards.empty()) {
             cards.erase(iter);
-        }*/
+        }
         return card;
     }
     
