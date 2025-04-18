@@ -25,6 +25,7 @@ void KrakenCard::play(Game& game, Player& player)
 	for (int i = 0; i < 3; ++i) {
 		if (deck->size() == 0) {
 			std::cout << "Deck is empty, cannot draw cards" << std::endl;
+			break;
 		}
 
 		Card* drawnCard = deck->removeCard();
