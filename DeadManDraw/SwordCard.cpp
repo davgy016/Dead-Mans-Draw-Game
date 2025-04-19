@@ -39,7 +39,7 @@ void SwordCard::play(Game& game, Player& player)
 	}	
 
 	//remove chosen suit card with highest value from player's bank and store in new card
-	Card* cardToSteal = otherBank->removeCard(chosenType);
+	Card* cardToSteal = otherBank->removeCardByType(chosenType);
 	if(!cardToSteal) {
 		std::cout << "Fail to steal card" << std::endl;
 		return;

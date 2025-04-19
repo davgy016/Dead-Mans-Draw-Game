@@ -42,7 +42,7 @@ void CannonCard::play(Game& game, Player& player)
 	}
 
 	//remove card and add into Discard Pile
-	Card* discardCard = otherBank->removeCard(chosenType);
+	Card* discardCard = otherBank->removeCardByType(chosenType);
 	std::cout << "Shoot " << discardCard->str() <<" out from other player's bank" << std::endl;
 	game.getDiscardPile()->addCard(discardCard);
 	

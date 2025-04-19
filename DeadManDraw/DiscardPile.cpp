@@ -29,12 +29,12 @@ void DiscardPile::addCard(Card* card)
 //}
 
 //remove multiple cards. e.g. check MapCardm, Chest-Key ability
-VectorContainer DiscardPile::drawCards(int count)
+VectorContainer DiscardPile::drawCards(int numOfCards)
 {
 	VectorContainer drawnCards;
 	if (!cards.empty()) {
 
-		for (int i = 0; i < count; ++i) {
+		for (int i = 0; i < numOfCards; ++i) {
 			Card* card = cards.back();
 			cards.pop_back();
 			drawnCards.push_back(card);

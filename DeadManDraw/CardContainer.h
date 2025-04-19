@@ -20,8 +20,8 @@ public:
 	virtual ~CardContainer() = 0;
 
 	virtual void addCard(Card* card) {};
-	virtual Card* removeCard(int index) { return nullptr; }
-	virtual Card* removeCard(CardType type) { return nullptr; };
+	//virtual Card* removeCard(int index) { return nullptr; }
+	virtual Card* removeCardByType(CardType type) { return nullptr; };
 	virtual Card* removeCard() { return nullptr; };
 	virtual int size() const { return cards.size(); }
 	//virtual bool isEmpty() const { return cards.empty(); }

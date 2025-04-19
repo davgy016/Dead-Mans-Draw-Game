@@ -41,7 +41,7 @@ void HookCard::play(Game& game, Player& player)
 	}
 
 	//remove chosen suit card with highest value from player's bank and store in new card
-	Card* cardToPlay = playerBank->removeCard(chosenType);
+	Card* cardToPlay = playerBank->removeCardByType(chosenType);
 	if (!cardToPlay) {
 		std::cout << "Fail to get card from bank" << std::endl;
 		return;

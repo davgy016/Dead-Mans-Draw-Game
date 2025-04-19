@@ -16,7 +16,7 @@ public:
 	//bool isEmpty() const override;
 
 	//remove multiple cards. e.g. check MapCardm, Chest-Key ability
-	VectorContainer drawCards(int count);
+	VectorContainer drawCards(int numOfCards);
 
 	// add multiple cards. e.g when it is bust
 	void addCards(const VectorContainer& newCards);
