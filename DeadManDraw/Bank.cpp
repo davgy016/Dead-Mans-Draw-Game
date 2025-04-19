@@ -2,8 +2,8 @@
 #include <algorithm>
 #include <iostream>
 
-Bank::Bank(Player* player):
-	_player(player),
+Bank::Bank():
+	
     CardContainer<MapContainer>()
 {
 }
@@ -20,10 +20,7 @@ Bank::~Bank()
     std::cout << "Bank Destroyed" << std::endl;
 }
 
-Player* Bank::getPlayer() const
-{
-	return _player;
-}
+
 
 void Bank::sortCardsByValue(CardType type)
 {
@@ -50,13 +47,13 @@ void Bank::addCard(Card* card)
     sortCardsByValue(card->getType());
 }
 
-Card* Bank::removeCard(int index)
-{
+//Card* Bank::removeCard(int index)
+//{
+//
+//	return nullptr;
+//}
 
-	return nullptr;
-}
-
-Card* Bank::removeCard(CardType type)
+Card* Bank::removeCardByType(CardType type)
 {
     auto iter = cards.find(type);
     if (iter != cards.end() && !iter->second.empty()) {

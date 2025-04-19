@@ -10,7 +10,7 @@ Player::Player() :
 	_busted(false)
 {
 	_playArea = new PlayArea();
-	_bank = new Bank(this);
+	_bank = new Bank();
 	initialise();
 }
 
